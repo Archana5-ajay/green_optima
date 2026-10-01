@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin — Green Optima</title>
+<style>
+:root{--bg:#f6f6f0;--fg:#1b1c1c;--card:#fff;--ac:#18A041;--ln:#dcdcd0;--green:#18A041;--red:#e53e3e;--yellow:#d69e2e;--dark:#0a0a0a;--muted:#666}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#111;--fg:#eee;--card:#1a1a1a;--ac:#e4fe7b;--ln:#333;--muted:#999}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+#lg{max-width:340px;margin:20vh auto;display:grid;gap:12px;background:var(--card);padding:28px;border-radius:16px;border:1px solid var(--ln);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+#app{display:none;grid-template-columns:250px 1fr;min-height:100vh}
+nav{border-right:1px solid var(--ln);padding:16px 12px;position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--card)}
+nav .nav-section{font:700 11px -apple-system,BlinkMacSystemFont,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:14px 8px 6px;margin-top:4px}
+nav button{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;margin:2px 0;padding:8px 12px;border:1px solid transparent;border-radius:8px;background:transparent;color:var(--fg);font-size:13px;cursor:pointer;transition:all .15s}
+nav button:hover{background:var(--bg)}
+nav button.on{background:var(--fg);color:var(--bg);font-weight:600}
+nav button .nav-badge{font-size:10px;padding:2px 6px;border-radius:99px;font-weight:700;letter-spacing:.03em}
+nav button .nav-badge.on{background:#dcfce7;color:#15803d}
+nav button .nav-badge.off{background:#fee2e2;color:#b91c1c}
+nav button.on .nav-badge.on{background:#22c55e;color:#fff}
+nav button.on .nav-badge.off{background:#ef4444;color:#fff}
+main{padding:28px 36px;max-width:1020px;padding-bottom:120px}
+input,textarea,select,button{font:inherit;padding:8px 12px;border:1px solid var(--ln);border-radius:8px;background:var(--card);color:var(--fg)}
+input[type=text],input:not([type]),input[type=number],textarea{width:100%}textarea{min-height:70px}
+input[type=color]{padding:0;width:44px;height:34px;cursor:pointer;border-radius:6px;border:1px solid var(--ln)}
+input[type=checkbox]{width:18px;height:18px;cursor:pointer;accent-color:var(--green)}
+input[type=range]{width:100%;cursor:pointer;accent-color:var(--green)}
+button{cursor:pointer;transition:all .15s}
+button.p{background:var(--green);color:#fff;border-color:var(--green);font-weight:600}
+button.p:hover{filter:brightness(1.1)}
+button.danger{background:var(--red);color:#fff;border-color:var(--red);font-weight:600}
+button.danger:hover{filter:brightness(1.1)}
+button.sec-toggle-btn{padding:7px 16px;border-radius:99px;font-weight:700;font-size:12px;display:inline-flex;align-items:center;gap:6px}
+button.sec-toggle-btn.is-active{background:#dcfce7;color:#15803d;border:1px solid #86efac}
+button.sec-toggle-btn.is-inactive{background:#fee2e2;color:#b91c1c;border:1px solid #fca5a5}
+fieldset{border:1px solid var(--ln);border-radius:12px;margin:14px 0;padding:16px;background:var(--card)}legend{font-weight:700;padding:0 8px;font-size:13px}
+label{display:block;margin:10px 0 4px;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.it{border-left:3px solid var(--green);padding-left:14px;margin:14px 0;background:var(--bg);padding:14px;border-radius:0 12px 12px 0}
+.bar{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap;align-items:center}
+.m{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.m img,.m video{width:72px;height:52px;object-fit:cover;border-radius:8px;border:1px solid var(--ln);background:#000}
+#sv{position:fixed;left:250px;right:0;bottom:0;padding:14px 32px;background:var(--card);border-top:1px solid var(--ln);display:flex;gap:14px;align-items:center;z-index:99;box-shadow:0 -4px 16px rgba(0,0,0,.04)}
+/* Container Controls Banner */
+.ct-banner{background:linear-gradient(135deg,#f0fdf4 0%,#f8fafc 100%);border:1.5px solid #86efac;border-radius:16px;padding:20px;margin-bottom:28px;box-shadow:0 4px 16px rgba(0,0,0,.03)}
+@media(prefers-color-scheme:dark){.ct-banner{background:linear-gradient(135deg,#064e3b 0%,#111827 100%);border-color:#059669}}
+.ct-banner.inactive{background:#fef2f2;border-color:#fca5a5}
+@media(prefers-color-scheme:dark){.ct-banner.inactive{background:#450a0a;border-color:#991b1b}}
+.ct-banner-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(0,0,0,.08)}
+.ct-status-badge{font-size:12px;font-weight:700;padding:4px 12px;border-radius:99px;letter-spacing:.04em;display:inline-flex;align-items:center;gap:6px}
+.ct-status-badge.on{background:#dcfce7;color:#15803d}
+.ct-status-badge.off{background:#fee2e2;color:#b91c1c}
+.gap-controls{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
+.gap-field{display:flex;flex-direction:column;gap:6px}
+.gap-field label{margin:0;display:flex;justify-content:space-between;font-size:11px}
+.gap-field .gap-val{font-weight:700;color:var(--green);font-family:monospace}
+.color-field{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+.color-field label{margin:0;font-size:11px}
+.color-swatch-list{display:flex;gap:6px;align-items:center}
+.color-swatch-btn{width:24px;height:24px;border-radius:6px;border:1px solid var(--ln);cursor:pointer;padding:0}
+/* Section Manager Overview */
+.sec-mgr{display:grid;gap:14px}
+.sec-row{display:grid;grid-template-columns:220px 1fr;gap:16px;align-items:center;padding:18px;border:1px solid var(--ln);border-radius:14px;background:var(--card);transition:opacity .2s}
+.sec-row.inactive{opacity:.6}
+.sec-row-info h4{margin:0 0 6px;font-size:15px}
+.sec-row-controls{display:grid;gap:12px}
+/* Custom Container Builder */
+.custom-ct-box{padding:22px;border:2px solid var(--ln);border-radius:18px;margin-bottom:22px;background:var(--card);position:relative}
+.custom-ct-box.inactive{opacity:.6}
+.cards-editor{margin-top:18px;padding-top:16px;border-top:1px dashed var(--ln)}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:12px}
+.card-edit-box{padding:14px;border:1px solid var(--ln);border-radius:12px;background:var(--bg)}
+/* Image upload widget */
+.img-widget{display:grid;gap:8px;padding:10px;border:1px dashed var(--ln);border-radius:10px;background:var(--bg);margin-top:4px}
+.img-widget-preview{display:flex;gap:12px;align-items:center}
+.img-widget-preview img{width:90px;height:60px;object-fit:cover;border-radius:8px;border:1px solid var(--ln);background:#000}
+.img-widget-preview .no-img{width:90px;height:60px;border-radius:8px;border:1px dashed var(--ln);display:grid;place-items:center;font-size:11px;color:var(--muted);background:var(--card)}
+@media(max-width:768px){#app{grid-template-columns:1fr}nav{position:static;height:auto;display:flex;flex-wrap:wrap;gap:4px}nav button{width:auto}#sv{left:0}.sec-row{grid-template-columns:1fr}.gap-controls{grid-template-columns:1fr}}
+</style></head><body>
+<form id="lg">
+  <h2 style="margin:0 0 8px">Admin Login</h2>
+  <p style="margin:0 0 16px;color:var(--muted);font-size:13px">Enter your administrator password to edit the website.</p>
+  <input type="password" id="pw" placeholder="Password" autocomplete="current-password" required>
+  <button class="p" style="padding:10px">Sign In</button>
+  <small id="le" style="color:var(--red);font-weight:600"></small>
+</form>
+<div id="app">
+  <nav id="nv"></nav>
+  <main id="mn"></main>
+  <div id="sv">
+    <button class="p" id="sb" style="padding:9px 22px">Save changes</button>
+    <span id="st" style="font-weight:600;font-size:13px"></span>
+    <a href="/" target="_blank" style="margin-left:auto;color:inherit;font-weight:600;text-decoration:none">View site ↗</a>
+    <button id="lo">Log out</button>
+  </div>
+</div>
+<datalist id="ic"><option value="leaf"><option value="building"><option value="factory"><option value="hospital"><option value="hotel"><option value="retail"><option value="government"><option value="port"><option value="education"><option value="datacenter"><option value="energy"><option value="water"><option value="transport"><option value="shield"><option value="chart"><option value="target"><option value="check"><option value="cpu"><option value="clock"></datalist>
+<script type="module" src="./admin.js?v=20261001"></script>
+</body></html>

@@ -1,0 +1,675 @@
+{
+  "theme": {
+    "dark": "#0a0a0a",
+    "cream": "#ffffe6",
+    "card": "#edebbe",
+    "lime": "#e4fe7b",
+    "ink": "#1b1c1c",
+    "accent": "#18A041"
+  },
+  "site": {
+    "name": "Green Optima",
+    "logo": "/uploads/5c199780-b229-40b4-92ac-cc30793c376e.png",
+    "cta": "Get in touch",
+    "email": "info@example.com",
+    "phone": "+971 0 000 0000",
+    "address": "Office 1201, Tower B, Prime Business Centre, JVC, Dubai",
+    "hours": "Sun–Thu 9:00–18:00"
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "#"
+    },
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Solutions",
+      "href": "#services"
+    },
+    {
+      "label": "Projects",
+      "href": "#projects"
+    },
+    {
+      "label": "Industries",
+      "href": "#industries"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
+  ],
+  "hero": {
+    "interval": 3,
+    "slides": [
+      {
+        "image": "/uploads/5ba0ff2b-cb23-42d2-8a10-5408848c8cf3.jpg",
+        "video": "",
+        "eyebrow": "Next-Gen Building Integration",
+        "title": "Connect your systems. Cut energy costs. Automate everything.",
+        "text": "Unify your BMS, IoT sensors, energy metering, and access controls into one intelligent, open-protocol platform built for complete operational control.",
+        "cta": "Get in touch",
+        "ctaHref": "#contact",
+        "cta2": "Our solutions",
+        "cta2Href": "#services",
+        "cardTag": "Solutions",
+        "cardTitle": "What we integrate",
+        "cardItems": [
+          "IBMS",
+          "Internet of Things",
+          "Energy metering",
+          "Access control",
+          "Lighting control",
+          "Chiller plant manager"
+        ]
+      },
+      {
+        "image": "/uploads/b81817b5-c861-4185-a14b-b398265951b7.png",
+        "video": "",
+        "eyebrow": "Energy Metering & Analytics",
+        "title": "Real-Time Monitoring. Measurable Savings.",
+        "text": "Gain complete visibility into your building’s power consumption. Track real-time usage, detect peak demand spikes, and eliminate energy waste across all sub-circuits.",
+        "cta": "Get in touch",
+        "ctaHref": "#contact",
+        "cta2": "Our solutions",
+        "cta2Href": "#services",
+        "cardTag": "IBMS",
+        "cardTitle": "What it gives you",
+        "cardItems": [
+          "One view of every building system",
+          "Open-protocol retrofits",
+          "Trends and alarms in one place"
+        ]
+      },
+      {
+        "image": "/uploads/abe4c051-64b6-4153-9e6a-f4b6f81a240f.png",
+        "video": "",
+        "eyebrow": "Internet of Things",
+        "title": "Connected Infrastructure That Responds in Real Time",
+        "text": "Turn static building components into an intelligent network. Deploy wireless sensors and smart actuators to capture ambient data, optimize environmental comfort, and automate facility responses automatically.",
+        "cta": "Get in touch",
+        "ctaHref": "#contact",
+        "cta2": "Our solutions",
+        "cta2Href": "#services",
+        "cardTag": "IoT",
+        "cardTitle": "Three outcomes",
+        "cardItems": [
+          "Solve traffic",
+          "Cut pollution",
+          "Boost safety"
+        ]
+      },
+      {
+        "image": "/uploads/b0c44b8c-c9b9-47b5-8b48-d43153c5c987.png",
+        "video": "",
+        "eyebrow": "Energy metering",
+        "title": "Monitor. Engage. Optimize.",
+        "text": "Monitor power consumption across all circuits and subsystems. Eliminate operational waste, smooth out peak demand spikes, and automate compliance reporting from a single dashboard.",
+        "cta": "Get in touch",
+        "ctaHref": "#contact",
+        "cta2": "Our solutions",
+        "cta2Href": "#services",
+        "cardTag": "Energy metering",
+        "cardTitle": "Three-step path",
+        "cardItems": [
+          "Monitor",
+          "Engage",
+          "Optimize"
+        ]
+      },
+      {
+        "image": "/uploads/c0c6d028-fd78-4958-ad95-729f790ad4bc.png",
+        "video": "",
+        "eyebrow": "Chiller plant",
+        "title": "Smarter plant control",
+        "text": "Placeholder supporting copy sits here for layout testing.",
+        "cta": "Get in touch",
+        "ctaHref": "#contact",
+        "cta2": "Our solutions",
+        "cta2Href": "#services",
+        "cardTag": "Chiller plant manager",
+        "cardTitle": "Dummy benefits",
+        "cardItems": [
+          "Benefit one",
+          "Benefit two",
+          "Benefit three"
+        ]
+      }
+    ]
+  },
+  "pillars": {
+    "title": "What makes us different",
+    "sub": "Your smart integrator. Save energy. Connect everything.",
+    "items": [
+      {
+        "icon": "target",
+        "title": "We make things simple",
+        "text": "We streamline complex building systems into an intuitive, unified dashboard—eliminating technical clutter and simplifying daily facility operations.",
+        "image": "/uploads/5ba0ff2b-cb23-42d2-8a10-5408848c8cf3.jpg"
+      },
+      {
+        "icon": "clock",
+        "title": "We focus on deadlines",
+        "text": "On-time project delivery is our standard. We stick to structured installation timelines and rapid commissioning so your facility opens on schedule without costly delays.",
+        "image": "/uploads/abe4c051-64b6-4153-9e6a-f4b6f81a240f.png"
+      },
+      {
+        "icon": "cpu",
+        "title": "Open-protocol retrofits",
+        "text": "Seamlessly integrate legacy controllers and multi-vendor hardware into a unified BACnet, Modbus, or MQTT network—eliminating proprietary vendor lock-in forever.",
+        "image": "/uploads/b0c44b8c-c9b9-47b5-8b48-d43153c5c987.png"
+      },
+      {
+        "icon": "shield",
+        "title": "Tailor-made solutions",
+        "text": "Every facility is unique. We design custom control strategies and bespoke hardware integrations engineered specifically around your operational goals and building footprint.",
+        "image": "/uploads/c0c6d028-fd78-4958-ad95-729f790ad4bc.png"
+      }
+    ]
+  },
+  "about": {
+    "tag": "About our company",
+    "title": "Smarter buildings. Proven savings.",
+    "text": "We engineer open-protocol building management systems, IoT sensor networks, and energy analytics that turn complex facility infrastructure into streamlined, cost-effective operations.",
+    "cta": "Know more",
+    "ctaHref": "#",
+    "image": "/uploads/5fc20908-e9da-423e-84fd-8531c33c344d.png",
+    "points": [
+      {
+        "label": "Founding",
+        "text": "Founded in 2006"
+      },
+      {
+        "label": "Experience",
+        "text": "Projects across Dubai, Abu Dhabi and Ras Al Khaimah"
+      }
+    ],
+    "cards": [
+      {
+        "icon": "target",
+        "title": "Mission",
+        "text": "Placeholder supporting copy sits here for layout testing."
+      },
+      {
+        "icon": "leaf",
+        "title": "Vision",
+        "text": "Leading technology and service provider for sustainable buildings"
+      },
+      {
+        "icon": "chart",
+        "title": "Expertise",
+        "text": "Placeholder supporting copy sits here for layout testing."
+      }
+    ],
+    "video": "/uploads/9958244b-e119-49c1-b637-6977ab6e2272.mp4"
+  },
+  "cases": {
+    "tag": "Case studies",
+    "title": "Brands we have helped growing",
+    "interval": 3,
+    "moreLabel": "Read more case studies",
+    "moreHref": "#",
+    "items": [
+      {
+        "image": "/uploads/fe55d223-ec35-4e42-a839-873340122602.png",
+        "client": "Fairmont The Palm, Dubai",
+        "title": "Fairmont The Palm, Dubai",
+        "quote": "Green Optima seamlessly integrated our central cooling and energy management platforms, delivering measurable utility savings while ensuring flawless guest comfort across our luxury beach resort.",
+        "points": [
+          "Location: Palm Jumeirah, Dubai",
+          "Category: Hospitality & Luxury Resort",
+          "Scope: Integrated BMS, Chiller Plant Optimization & Energy Metering",
+          "Result: 18% Energy Reduction & Centralized HVAC Control"
+        ],
+        "cta": "Read More",
+        "href": "#"
+      },
+      {
+        "image": "/uploads/8c6ec1c9-e7c1-4619-a331-4a12df9bca72.png",
+        "client": "Dubai Silicon Oasis",
+        "title": "Dubai Silicon Oasis",
+        "quote": "Partnering with Green Optima allowed us to seamlessly integrate energy metering and sub-station monitoring across Dubai Silicon Oasis, driving key sustainability and smart city initiatives",
+        "points": [
+          "Location: Dubai, UAE",
+          "Category: Smart City & Infrastructure",
+          "Scope: DEWA Integration, Energy Metering & Centralized BMS",
+          "Result: Automated Utility Reporting & Community Energy Efficiency"
+        ],
+        "cta": "Read More",
+        "href": "#"
+      },
+      {
+        "image": "/uploads/78c771d1-25f3-474d-8ee2-45c170ee60e1.png",
+        "client": "Oceana Residence, Dubai",
+        "title": "Oceana Residences, Dubai",
+        "quote": "Green Optima upgraded our building automation infrastructure, providing real-time operational control and optimized energy consumption across our beachfront residential community.",
+        "points": [
+          "Location: Abu Dhabi",
+          "Category: Luxury Residential Community",
+          "Scope: Integrated BMS, IoT Environmental Monitoring & Energy Metering",
+          "Result: Streamlined Facility Management & Reduced Utility Overhead"
+        ],
+        "cta": "Read More",
+        "href": "#"
+      },
+      {
+        "image": "/uploads/e5708135-1ff2-4998-9215-be2452245715.png",
+        "client": "Healthpoint Hospital, Abu Dhabi",
+        "title": "Healthpoint Hospital, Abu Dhabi",
+        "quote": "Green Optima delivered precise, integrated BMS and environmental controls across our critical medical spaces, ensuring continuous regulatory compliance and maximum energy efficiency.",
+        "points": [
+          "Location: Zayed Sports City, Abu Dhabi",
+          "Category: Healthcare & Clinical Facility",
+          "Scope: Integrated BMS, Critical Airflow Controls & Energy Metering",
+          "Result: Precise Environmental Stability & Reduced Operational Utility Costs"
+        ],
+        "cta": "Read More",
+        "href": "#"
+      }
+    ]
+  },
+  "services": {
+    "tag": "Our Services",
+    "title": "Our Services heading placeholder",
+    "items": [
+      {
+        "icon": "",
+        "title": "IBMS",
+        "text": "Placeholder supporting copy sits here for layout testing.",
+        "image": "/uploads/5ba0ff2b-cb23-42d2-8a10-5408848c8cf3.jpg",
+        "subs": [
+          "Sub-service 1",
+          "Sub-service 2",
+          "Sub-service 3",
+          "Sub-service 4",
+          "Sub-service 5",
+          "Sub-service 6",
+          "Sub-service 7",
+          "Sub-service 8",
+          "Sub-service 9"
+        ]
+      },
+      {
+        "icon": "",
+        "title": "Internet of Things",
+        "text": "Placeholder supporting copy sits here for layout testing.",
+        "image": "/uploads/abe4c051-64b6-4153-9e6a-f4b6f81a240f.png",
+        "subs": [
+          "Sub-service 1",
+          "Sub-service 2",
+          "Sub-service 3",
+          "Sub-service 4",
+          "Sub-service 5",
+          "Sub-service 6",
+          "Sub-service 7",
+          "Sub-service 8",
+          "Sub-service 9"
+        ]
+      },
+      {
+        "icon": "",
+        "title": "Access Control",
+        "text": "Placeholder supporting copy sits here for layout testing.",
+        "image": "/uploads/7a8faee6-1c42-4d54-b31b-c874b1bab33e.png",
+        "subs": [
+          "Sub-service 1",
+          "Sub-service 2",
+          "Sub-service 3",
+          "Sub-service 4",
+          "Sub-service 5",
+          "Sub-service 6",
+          "Sub-service 7",
+          "Sub-service 8",
+          "Sub-service 9"
+        ]
+      },
+      {
+        "icon": "",
+        "title": "Energy Metering",
+        "text": "Placeholder supporting copy sits here for layout testing.",
+        "image": "/uploads/b0c44b8c-c9b9-47b5-8b48-d43153c5c987.png",
+        "subs": [
+          "Sub-service 1",
+          "Sub-service 2",
+          "Sub-service 3",
+          "Sub-service 4",
+          "Sub-service 5",
+          "Sub-service 6",
+          "Sub-service 7",
+          "Sub-service 8",
+          "Sub-service 9"
+        ]
+      },
+      {
+        "icon": "",
+        "title": "Chiller Plant Manager",
+        "text": "Placeholder supporting copy sits here for layout testing.",
+        "image": "/uploads/c0c6d028-fd78-4958-ad95-729f790ad4bc.png",
+        "subs": [
+          "Sub-service 1",
+          "Sub-service 2",
+          "Sub-service 3",
+          "Sub-service 4",
+          "Sub-service 5",
+          "Sub-service 6",
+          "Sub-service 7",
+          "Sub-service 8",
+          "Sub-service 9"
+        ]
+      },
+      {
+        "icon": "",
+        "title": "Lighting Control",
+        "text": "Placeholder supporting copy sits here for layout testing.",
+        "image": "/uploads/fa30eb2e-7ea4-4869-aedd-cc141a245bff.png",
+        "subs": [
+          "Sub-service 1",
+          "Sub-service 2",
+          "Sub-service 3",
+          "Sub-service 4",
+          "Sub-service 5",
+          "Sub-service 6",
+          "Sub-service 7",
+          "Sub-service 8",
+          "Sub-service 9"
+        ]
+      }
+    ]
+  },
+  "industries": {
+    "tag": "Industries",
+    "title": "Industries we serve",
+    "sub": "Dummy sector list — confirm with client.",
+    "items": [
+      {
+        "icon": "building",
+        "name": "Commercial towers",
+        "href": "#contact"
+      },
+      {
+        "icon": "hotel",
+        "name": "Hospitality",
+        "href": "#contact"
+      },
+      {
+        "icon": "retail",
+        "name": "Retail",
+        "href": "#contact"
+      },
+      {
+        "icon": "government",
+        "name": "Government",
+        "href": "#contact"
+      },
+      {
+        "icon": "hospital",
+        "name": "Healthcare",
+        "href": "#contact"
+      },
+      {
+        "icon": "port",
+        "name": "Port & industrial",
+        "href": "#contact"
+      },
+      {
+        "icon": "education",
+        "name": "Education",
+        "href": "#contact"
+      },
+      {
+        "icon": "datacenter",
+        "name": "Data centres",
+        "href": "#contact"
+      },
+      {
+        "icon": "energy",
+        "name": "Utilities",
+        "href": "#contact"
+      },
+      {
+        "icon": "factory",
+        "name": "Manufacturing",
+        "href": "#contact"
+      },
+      {
+        "icon": "transport",
+        "name": "Logistics",
+        "href": "#contact"
+      },
+      {
+        "icon": "water",
+        "name": "Water & cooling",
+        "href": "#contact"
+      }
+    ]
+  },
+  "process": {
+    "tag": "Our process",
+    "title": "Our process heading placeholder",
+    "steps": [
+      {
+        "title": "Step 1 title",
+        "text": "Placeholder supporting copy sits here for layout testing."
+      },
+      {
+        "title": "Step 2 title",
+        "text": "Placeholder supporting copy sits here for layout testing."
+      },
+      {
+        "title": "Step 3 title",
+        "text": "Placeholder supporting copy sits here for layout testing."
+      },
+      {
+        "title": "Step 4 title",
+        "text": "Placeholder supporting copy sits here for layout testing."
+      }
+    ]
+  },
+  "stats": {
+    "tag": "By the numbers",
+    "title": "By the numbers heading placeholder",
+    "items": [
+      {
+        "tag": "Group 1",
+        "value": "50+",
+        "title": "Stat title 1",
+        "line1": "Supporting line one",
+        "line2": "Supporting line two"
+      },
+      {
+        "tag": "Group 2",
+        "value": "100+",
+        "title": "Stat title 2",
+        "line1": "Supporting line one",
+        "line2": "Supporting line two"
+      },
+      {
+        "tag": "Group 3",
+        "value": "150+",
+        "title": "Stat title 3",
+        "line1": "Supporting line one",
+        "line2": "Supporting line two"
+      }
+    ]
+  },
+  "compare": {
+    "tag": "The difference",
+    "title": "The difference heading placeholder",
+    "text": "Placeholder supporting copy sits here for layout testing.",
+    "rows": [
+      {
+        "label": "Row 1",
+        "without": "Without-us placeholder",
+        "with": "With-us placeholder"
+      },
+      {
+        "label": "Row 2",
+        "without": "Without-us placeholder",
+        "with": "With-us placeholder"
+      },
+      {
+        "label": "Row 3",
+        "without": "Without-us placeholder",
+        "with": "With-us placeholder"
+      },
+      {
+        "label": "Row 4",
+        "without": "Without-us placeholder",
+        "with": "With-us placeholder"
+      },
+      {
+        "label": "Row 5",
+        "without": "Without-us placeholder",
+        "with": "With-us placeholder"
+      },
+      {
+        "label": "Row 6",
+        "without": "Without-us placeholder",
+        "with": "With-us placeholder"
+      },
+      {
+        "label": "Row 7",
+        "without": "Without-us placeholder",
+        "with": "With-us placeholder"
+      }
+    ]
+  },
+  "reviews": {
+    "tag": "Reviews",
+    "title": "Reviews heading placeholder",
+    "items": [
+      {
+        "name": "Person name",
+        "role": "Company",
+        "quote": "Review placeholder 1",
+        "photo": "",
+        "video": ""
+      },
+      {
+        "name": "Person name",
+        "role": "Company",
+        "quote": "Review placeholder 2",
+        "photo": "",
+        "video": ""
+      },
+      {
+        "name": "Person name",
+        "role": "Company",
+        "quote": "Review placeholder 3",
+        "photo": "",
+        "video": ""
+      }
+    ]
+  },
+  "blog": {
+    "tag": "Blog",
+    "title": "Blog heading placeholder",
+    "items": [
+      {
+        "title": "Blog post title 1",
+        "date": "Aug 21",
+        "tag": "News",
+        "excerpt": "Placeholder supporting copy sits here for layout testing. Placeholder supporting copy sits here for layout testing.",
+        "image": ""
+      },
+      {
+        "title": "Blog post title 2",
+        "date": "Aug 21",
+        "tag": "News",
+        "excerpt": "Placeholder supporting copy sits here for layout testing. Placeholder supporting copy sits here for layout testing.",
+        "image": ""
+      },
+      {
+        "title": "Blog post title 3",
+        "date": "Aug 21",
+        "tag": "News",
+        "excerpt": "Placeholder supporting copy sits here for layout testing. Placeholder supporting copy sits here for layout testing.",
+        "image": ""
+      }
+    ]
+  },
+  "footer": {
+    "title": "Optimize your building’s operations",
+    "cta": "Let’s talk today",
+    "socials": [
+      {
+        "label": "LinkedIn",
+        "href": "#"
+      }
+    ]
+  },
+  "sectionSettings": {
+    "hero": {
+      "active": true,
+      "paddingTop": 0,
+      "paddingBottom": 0
+    },
+    "pillars": {
+      "active": true,
+      "paddingTop": 80,
+      "paddingBottom": 80
+    },
+    "about": {
+      "active": true,
+      "paddingTop": 80,
+      "paddingBottom": 90
+    },
+    "cases": {
+      "active": true,
+      "paddingTop": 80,
+      "paddingBottom": 80
+    },
+    "services": {
+      "active": true,
+      "paddingTop": 80,
+      "paddingBottom": 80
+    },
+    "industries": {
+      "active": true,
+      "paddingTop": 80,
+      "paddingBottom": 80
+    },
+    "process": {
+      "active": true,
+      "paddingTop": 80,
+      "paddingBottom": 80
+    },
+    "stats": {
+      "active": false,
+      "paddingTop": 80,
+      "paddingBottom": 80
+    },
+    "compare": {
+      "active": false,
+      "paddingTop": 80,
+      "paddingBottom": 80
+    },
+    "reviews": {
+      "active": true,
+      "paddingTop": 80,
+      "paddingBottom": 80
+    },
+    "blog": {
+      "active": false,
+      "paddingTop": 80,
+      "paddingBottom": 80
+    }
+  },
+  "sectionColors": {
+    "hero": "",
+    "pillars": "",
+    "about": "",
+    "cases": "",
+    "services": "",
+    "industries": "#0a0a0a",
+    "process": "",
+    "stats": "",
+    "compare": "",
+    "reviews": "",
+    "blog": ""
+  },
+  "customContainers": []
+}

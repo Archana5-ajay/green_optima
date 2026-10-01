@@ -1,0 +1,1 @@
+export const pin=(sec,cb)=>{const run=()=>{const np=innerWidth<=768;sec.classList.toggle('np',np);if(np)return cb(1,true);const r=sec.getBoundingClientRect();cb(Math.min(Math.max(-r.top/Math.max(r.height-innerHeight,1),0),1),false)};addEventListener('scroll',run,{passive:true});addEventListener('resize',run);requestAnimationFrame(run)};
