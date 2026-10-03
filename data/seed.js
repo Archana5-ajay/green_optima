@@ -25,5 +25,6 @@ blog:{...sec('Blog'),items:n(3,i=>({title:'Blog post title '+i,date:'Aug 21',tag
 footer:{title:'Optimize your building’s operations',cta:'Let’s talk today',socials:[{label:'LinkedIn',href:'#'}]},
 sectionSettings:{hero:{active:true,paddingTop:0,paddingBottom:0},pillars:{active:true,paddingTop:80,paddingBottom:80},about:{active:true,paddingTop:80,paddingBottom:80},cases:{active:true,paddingTop:80,paddingBottom:80},services:{active:true,paddingTop:80,paddingBottom:80},industries:{active:true,paddingTop:80,paddingBottom:80},process:{active:true,paddingTop:80,paddingBottom:80},stats:{active:true,paddingTop:80,paddingBottom:80},compare:{active:true,paddingTop:80,paddingBottom:80},reviews:{active:true,paddingTop:80,paddingBottom:80},blog:{active:true,paddingTop:80,paddingBottom:80}},
 sectionColors:{hero:'',pillars:'',about:'',cases:'',services:'',industries:'',process:'',stats:'',compare:'',reviews:'',blog:''},
-customContainers:[]
+customContainers:[],
+pages:[]
 };

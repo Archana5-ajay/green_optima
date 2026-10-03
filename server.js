@@ -29,6 +29,11 @@ const m=rd('messages.json',[]);m.unshift({id:crypto.randomUUID(),name:name.trim(
 app.get('/api/messages',auth,(q,s)=>s.json(rd('messages.json',[])));
 app.delete('/api/messages/:id',auth,(q,s)=>{wr('messages.json',rd('messages.json',[]).filter(m=>m.id!==q.params.id));s.json({ok:1})});
 app.get('/service/*',(q,s)=>s.sendFile(path.join(R,'public/service.html')));
+app.get(['/p/*','/page/*','/custom/*'],(q,s)=>s.sendFile(path.join(R,'public/page.html')));
 app.use(express.static(path.join(R,'public')));
+app.get('*',(q,s,next)=>{
+  if(q.path.startsWith('/api')||q.path.startsWith('/uploads')||q.path.startsWith('/admin')||q.path.includes('.'))return next();
+  s.sendFile(path.join(R,'public/page.html'));
+});
 app.use((e,q,s,n)=>{console.error(e);s.status(500).json({error:'Server error'})});
 app.listen(process.env.PORT||3000,()=>console.log('http://localhost:'+(process.env.PORT||3000)));

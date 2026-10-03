@@ -8,7 +8,7 @@ export default c => {
   return h('section', { class: 'sec cr', id: 'services' },
     h('div', { class: 'in' },
       tag(s.tag),
-      h('h2', { style: 'max-width:900px;margin-bottom:60px' }, s.title),
+      h('h2', { style: 'max-width:900px;margin-bottom:clamp(16px,2.5vh,28px)' }, s.title),
       ...s.items.map((v, idx) =>
         h('div', { class: 'svc', style: `z-index:${s.items.length - idx}` },
           // Left column: icon, title, text, sub-services

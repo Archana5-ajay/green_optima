@@ -4,4 +4,4 @@ const big=h('div',{class:'ab-big'},h('div',{},tag(a.tag),h('h2',{},a.title),h('p
 const cs=a.cards.map((k,i)=>h('div',{class:'ab-c',style:`z-index:${a.cards.length-i}`},h('span',{class:'pl-i'},iconOrImg(k.icon)),h('h3',{},k.title),h('p',{},k.text))),row=h('div',{class:'ab-r'},cs);
 const sec=h('section',{id:'about',class:'dk pin ab'},h('div',{class:'pin-in'},h('div',{class:'in'},big,row)));
 pin(sec,(v,np)=>cs.forEach((el,i)=>{if(np){el.style.transform='';return}const t=e(cl((v-.08-i*.2)/.4)),w=el.offsetWidth,off=(row.clientWidth-w)/2-el.offsetLeft;el.style.transform=`translate(${off*(1-t)}px,${(1-t)*-i*8}px) rotate(${(1-t)*(i-1)*3}deg)`}));
-return[sec,h('section',{class:'dk ab-vid-sec',style:'padding:100px var(--pad) 120px;margin-top:60px;'},h('div',{class:'in'},embed(a.video)))];};
+return[sec,h('section',{class:'dk ab-vid-sec'},h('div',{class:'in'},embed(a.video)))];};
