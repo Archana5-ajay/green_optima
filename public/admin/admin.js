@@ -23,6 +23,8 @@ import { renderSectionManager } from './js/components/sectionManager.js';
 import { renderMessages } from './js/components/messagesEditor.js';
 import { renderPagesEditor } from './js/components/pagesEditor.js';
 import { renderNavEditor } from './js/components/navEditor.js';
+import { renderNavbarSettingsEditor } from './js/components/navbarSettingsEditor.js';
+import { renderTopNavPagesEditor } from './js/components/topNavPagesEditor.js';
 
 // Render active tab view
 function renderMain() {
@@ -37,6 +39,14 @@ function renderMain() {
   }
   if (tab === 'nav') {
     main.replaceChildren(renderNavEditor(render));
+    return;
+  }
+  if (tab === 'topnav') {
+    main.replaceChildren(renderTopNavPagesEditor(render));
+    return;
+  }
+  if (tab === 'navbar') {
+    main.replaceChildren(renderNavbarSettingsEditor(render));
     return;
   }
   if (tab === 'messages') {
@@ -100,6 +110,8 @@ async function load() {
   content.customContainers = content.customContainers || [];
   content.pages = content.pages || [];
   content.nav = content.nav || [];
+  content.navTop = content.navTop || [];
+  content.navbarSettings = content.navbarSettings || {};
   
   // Ensure all section data objects exist
   SECTION_KEYS.forEach(key => {

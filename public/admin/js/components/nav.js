@@ -49,6 +49,31 @@ export function renderNav(onTabSelect) {
       },
       h('span', {}, '▾ Header Nav & Dropdowns')
     ),
+    h(
+      'button',
+      {
+        class: tab === 'navbar' ? 'on' : '',
+        onclick: () => {
+          setTab('navbar');
+          if (onTabSelect) onTabSelect();
+        }
+      },
+      h('span', {}, '🎛 Navbar Style & Layout')
+    ),
+    h(
+      'button',
+      {
+        class: tab === 'topnav' ? 'on' : '',
+        onclick: () => {
+          setTab('topnav');
+          if (onTabSelect) onTabSelect();
+        }
+      },
+      h('span', {}, '🔗 Top Bar Pages'),
+      h('span', { class: 'nav-badge', style: 'background:rgba(24,160,65,.18);color:var(--green)' },
+        (getData()?.navTop || []).filter(x => x.href && x.href.startsWith('/p/')).length || 0
+      )
+    ),
 
     // 2. Homepage Sections
     h('div', { class: 'nav-section' }, 'Homepage Sections'),

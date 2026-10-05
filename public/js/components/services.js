@@ -4,14 +4,28 @@ const safe = u => (typeof u === 'string' && /^(\/uploads\/|https?:\/\/)/.test(u)
 
 export default c => {
   const s = c.services;
+  const pages = c.pages || [];
+
+  // Build "explore all" href — link to /p/solutions if that page exists, else #services
+  const solutionsPage = pages.find(p =>
+    /solution/i.test(p.slug || p.title || '') || /solution/i.test(p.id || '')
+  );
+  const exploreAllHref = solutionsPage ? `/p/${solutionsPage.slug || solutionsPage.id}` : s.exploreHref || '#services';
 
   return h('section', { class: 'sec cr', id: 'services' },
     h('div', { class: 'in' },
       tag(s.tag),
       h('h2', { style: 'max-width:900px;margin-bottom:clamp(16px,2.5vh,28px)' }, s.title),
-      ...s.items.map((v, idx) =>
-        h('div', { class: 'svc', style: `z-index:${s.items.length - idx}` },
-          // Left column: icon, title, text, sub-services
+      ...s.items.map((v, idx) => {
+        // Build service subpage href — look for matching page or use slug from title
+        const slug = (v.slug || v.title || 'service').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        const matchedPage = pages.find(p => (p.slug || p.id || '').toLowerCase().includes(slug.split('-')[0]));
+        const serviceHref = matchedPage
+          ? `/p/${matchedPage.slug || matchedPage.id}`
+          : v.href || `/service/${slug}`;
+
+        return h('div', { class: 'svc', style: `z-index:${s.items.length - idx}` },
+          // Left column: icon, title, text, sub-services, CTA
           h('div', { class: 'svc-left' },
             h('span', { class: 'pl-i svc-icon' }, iconOrImg(v.icon)),
             h('h3', { class: 'svc-title' }, v.title),
@@ -26,18 +40,21 @@ export default c => {
                   )
                 )
               : null,
-            h('a', {
-              class: 'svc-cta',
-              href: `/service/${encodeURIComponent((v.title || 'service').toLowerCase().replace(/\s+/g, '-'))}`,
-            }, 'View Service →')
+            h('a', { class: 'svc-cta', href: serviceHref }, 'View details →')
           ),
-          // Right column: big image fills right side
+          // Right column: big image
           h('div', { class: 'svc-right' },
             safe(v.image)
               ? h('img', { src: v.image, alt: v.title || '', class: 'svc-img' })
               : h('div', { class: 'ph svc-img' }, '[ SERVICE IMAGE ]')
           ),
           h('span', { class: 'ln' })
+        );
+      }),
+      // ── Explore All CTA ──────────────────────────────────────────
+      h('div', { style: 'margin-top:clamp(20px,3vh,36px);display:flex;justify-content:center' },
+        h('a', { class: 'explore-all', href: exploreAllHref },
+          s.exploreLabel || 'Explore all solutions'
         )
       )
     )

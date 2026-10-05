@@ -66,6 +66,11 @@ label{display:block;margin:10px 0 4px;font-size:12px;font-weight:600;color:var(-
 /* Custom Container Builder */
 .custom-ct-box{padding:22px;border:2px solid var(--ln);border-radius:18px;margin-bottom:22px;background:var(--card);position:relative}
 .custom-ct-box.inactive{opacity:.7}
+/* Reorder controls */
+.reorder-btn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:6px;border:1px solid var(--ln);background:var(--bg);color:var(--fg);font-size:12px;cursor:pointer;transition:background .15s,color .15s,transform .1s;padding:0;line-height:1}
+.reorder-btn:hover:not(:disabled){background:var(--ac);color:#fff;border-color:var(--ac);transform:scale(1.1)}
+.reorder-btn:disabled,.reorder-btn-disabled{opacity:.28;cursor:not-allowed;pointer-events:none}
+
 .cards-editor{margin-top:18px;padding-top:16px;border-top:1px dashed var(--ln)}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:12px}
 .card-edit-box{padding:14px;border:1px solid var(--ln);border-radius:12px;background:var(--bg)}
