@@ -1,4 +1,6 @@
+import 'dotenv/config';
 import express from 'express'; import multer from 'multer'; import crypto from 'node:crypto'; import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url'; import seed from './data/seed.js'; import compression from 'compression';
+
 const R = path.dirname(fileURLToPath(import.meta.url)), D = path.join(R, 'data'), U = path.join(R, 'public/uploads');
 fs.mkdirSync(U, { recursive: true });
 const PASS = process.env.ADMIN_PASSWORD; if (!PASS || PASS.length < 8) { console.error('Set ADMIN_PASSWORD (8+ chars)'); process.exit(1) }
@@ -42,4 +44,3 @@ app.get('*', (q, s, next) => {
 });
 app.use((e, q, s, n) => { console.error(e); s.status(500).json({ error: 'Server error' }) });
 app.listen(process.env.PORT || 3000, () => console.log('http://localhost:' + (process.env.PORT || 3000)));
-module.exports = app;
