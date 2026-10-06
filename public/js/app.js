@@ -10,7 +10,7 @@ import header from './components/header.js';
 import footer from './components/footer.js';
 
 // Section components
-import hero from './components/hero.js';
+import hero from './components/hero.js?v=2';
 import pillars from './components/pillars.js';
 import about from './components/about.js';
 import cases from './components/cases.js';
@@ -82,6 +82,9 @@ async function init() {
   // 6. Initialize Scroll Reveal Animations
   requestAnimationFrame(() => {
     initScrollReveal();
+    // Dismiss the page loader
+    const loader = document.getElementById('page-loader');
+    if (loader) loader.classList.add('done');
   });
 }
 

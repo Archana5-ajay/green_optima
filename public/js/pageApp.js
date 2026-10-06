@@ -12,7 +12,7 @@ import header from './components/header.js';
 import footer from './components/footer.js';
 
 // Section components
-import hero from './components/hero.js';
+import hero from './components/hero.js?v=2';
 import pillars from './components/pillars.js';
 import about from './components/about.js';
 import cases from './components/cases.js';
@@ -165,8 +165,49 @@ async function init() {
   if (currentPage.template === 'custom' && currentPage.customCode) {
     // ── CUSTOM CODE / HTML / CSS / JS TEMPLATE ────────────────────────────
     const codeWrapper = h('div', { class: 'custom-code-wrap' });
-    codeWrapper.innerHTML = currentPage.customCode;
 
+    // ── Permanent sanitizer for full-HTML custom pages ─────────────────────
+    // If someone pastes a full HTML document (with <html>/<head>/<body> tags),
+    // we extract only the body content and styles — and critically, we REWRITE
+    // any  body { ... }  CSS rules to target .custom-code-wrap instead.
+    // This stops `body { display:flex }` from pushing the footer sideways,
+    // no matter how new pages are created.
+    let safeCode = currentPage.customCode;
+
+    // Helper: scope all `body {` rules in a CSS string to `.custom-code-wrap`
+    const scopeBodyCSS = (css) => css
+      .replace(/\bhtml\s*,\s*body\s*\{([^}]*)\}/gi, '.custom-code-wrap {$1}')
+      .replace(/\bhtml\b\s*\{([^}]*)\}/gi, '')        // drop html{} entirely
+      .replace(/\bbody\s*\{/gi, '.custom-code-wrap {'); // scope body{} rules
+
+    if (/<html[\s>]/i.test(safeCode)) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(safeCode, 'text/html');
+
+      // Rewrite <style> tags from <head> — scope body{} → .custom-code-wrap
+      const headStyles = [...doc.head.querySelectorAll('style')]
+        .map(el => `<style>${scopeBodyCSS(el.textContent)}</style>`)
+        .join('\n');
+
+      // Keep <script> tags from head as-is
+      const headScripts = [...doc.head.querySelectorAll('script')]
+        .map(el => el.outerHTML).join('\n');
+
+      // Also scope any inline <style> blocks inside the body
+      [...doc.body.querySelectorAll('style')].forEach(el => {
+        el.textContent = scopeBodyCSS(el.textContent);
+      });
+
+      safeCode = headStyles + '\n' + headScripts + '\n' + doc.body.innerHTML;
+    } else {
+      // Even for non-full-HTML code, scope any stray body{} rules in <style> tags
+      safeCode = safeCode.replace(
+        /(<style[^>]*>)([\s\S]*?)(<\/style>)/gi,
+        (_, open, css, close) => open + scopeBodyCSS(css) + close
+      );
+    }
+
+    codeWrapper.innerHTML = safeCode;
     app.append(codeWrapper);
     executeScripts(codeWrapper);
 
@@ -246,6 +287,9 @@ async function init() {
   // 6. Initialize Scroll Reveal Animations
   requestAnimationFrame(() => {
     initScrollReveal();
+    // Dismiss the page loader
+    const loader = document.getElementById('page-loader');
+    if (loader) loader.classList.add('done');
   });
 }
 

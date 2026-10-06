@@ -6,7 +6,7 @@ export default function renderFooter(c) {
   const phone = s.phone || '+971 04 566 7544';
   const address = s.address || 'Office 1201, Tower B, Prime Business Centre, JVC, Dubai, UAE';
   const siteName = s.name || 'Green Optima';
-  const websiteUrl = 'https://www.greenoptima.ae';
+
 
   const linkedInUrl = ((f.socials || []).find(x => /linkedin/i.test(x.label)) || {}).href
     || 'https://www.linkedin.com/company/green-optima';
@@ -75,7 +75,7 @@ export default function renderFooter(c) {
 
     <!-- ① Brand -->
     <div class="nft-brand">
-      <a href="${websiteUrl}" target="_blank" rel="noopener" style="display:inline-block">
+      <a href="/" style="display:inline-block">
         ${s.logo
       ? `<img class="nft-logo-img" src="${s.logo}" alt="${siteName}">`
       : `<span class="nft-logo-fallback">${siteName}</span>`}
@@ -88,9 +88,7 @@ export default function renderFooter(c) {
         <a class="nft-soc-btn" href="${youtubeUrl}" target="_blank" rel="noopener" aria-label="YouTube">
           <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29.94 29.94 0 0 0 1 12a29.94 29.94 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.95-1.97A29.94 29.94 0 0 0 23 12a29.94 29.94 0 0 0-.46-5.58z"/><polygon fill="#020b06" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
         </a>
-        <a class="nft-soc-btn soc-web" href="${websiteUrl}" target="_blank" rel="noopener" aria-label="greenoptima.ae">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-        </a>
+
       </div>
     </div>
 
@@ -149,10 +147,7 @@ export default function renderFooter(c) {
           <svg class="ci" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
           <span>${address}</span>
         </li>
-        <li>
-          <svg class="ci" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-          <a href="${websiteUrl}" target="_blank" rel="noopener">greenoptima.ae</a>
-        </li>
+
       </ul>
     </div>
 

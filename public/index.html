@@ -1,4 +1,12 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Loading…</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Red+Hat+Mono:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/sections.css"></head><body><main id="app"></main><script type="module" src="/js/app.js"></script></body></html>
+<link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/sections.css">
+<script>
+  var ts = Date.now();
+  window.addEventListener('error', function(e) {
+    document.body.innerHTML = '<pre style="color:red;padding:20px;font-family:monospace;background:black;position:fixed;inset:0;overflow:auto;z-index:99999;font-size:14px">' + (e.error ? e.error.stack : e.message) + '\n\nFile: ' + e.filename + '\nLine: ' + e.lineno + '</pre>';
+  });
+  document.write('<scr'+'ipt type="module" src="/js/app.js?v=' + ts + '"></scr'+'ipt>');
+</script>
+</head><body><main id="app"></main></body></html>

@@ -14,10 +14,10 @@ export default content => {
   const isDual        = ns.dualNavbar   === true;
   const mainHeight    = ns.mainHeight   || 70;
   const topHeight     = ns.topHeight    || 38;
-  const mainBg        = ns.mainBg       || 'rgba(8,14,10,0.88)';
+  const mainBg        = ns.mainBg       || 'rgba(0,0,0,0.75)';
   const mainColor     = ns.mainColor    || '#ffffff';
-  const topBg         = ns.topBg        || 'rgba(5,8,6,0.97)';
-  const topColor      = ns.topColor     || 'rgba(180,220,190,0.82)';
+  const topBg         = ns.topBg        || 'rgba(0,0,0,0.88)';
+  const topColor      = ns.topColor     || 'rgba(200,230,210,0.80)';
   const maxWidth      = ns.maxWidth     || 1340;
   const padding       = (ns.padding     !== undefined) ? ns.padding   : 32;
   const borderRadius  = ns.borderRadius || 0;
@@ -26,8 +26,8 @@ export default content => {
   const rightOffset   = ns.rightOffset  || 0;
   const mainFontSize  = ns.mainFontSize || 14;
   const topFontSize   = ns.topFontSize  || 12;
-  const backdropBlur  = (ns.backdropBlur !== undefined) ? ns.backdropBlur : 18;
-  const borderColor   = ns.borderColor  || 'rgba(255,255,255,0.07)';
+  const backdropBlur  = (ns.backdropBlur !== undefined) ? ns.backdropBlur : 24;
+  const borderColor   = ns.borderColor  || 'rgba(255,255,255,0.08)';
   const logoMaxHeight = ns.logoMaxHeight|| 38;
 
   // ── Subpage-aware anchor helper ─────────────────────────────────
@@ -128,16 +128,19 @@ export default content => {
 
   // ── Logo ────────────────────────────────────────────────────────
   const logoUrl = content.site?.logo;
-  const logoImg = logoUrl 
-    ? h('img', { src: logoUrl, style: `height:100%;max-height:${logoMaxHeight}px;width:auto;object-fit:contain;display:block` })
+  // Total height when dual: topHeight + mainHeight; else just mainHeight
+  const totalLogoH = isDual ? topHeight + mainHeight : mainHeight;
+  const logoImg = logoUrl
+    ? h('img', { src: logoUrl, style: `height:100%;max-height:${totalLogoH}px;width:auto;object-fit:contain;display:block;opacity:1 !important;filter:brightness(1.2) contrast(1.1) drop-shadow(0px 2px 4px rgba(0,0,0,0.4));` })
     : h('span', { style: 'font-weight:800;font-size:24px' }, '[ LOGO ]');
 
+  // In dual mode the logo sits absolutely over both bars; in single mode it's inline
   const logoEl = h('a', {
     href: '/',
-    style: `display:block;height:${logoMaxHeight}px;transition:opacity .2s`
+    style: isDual
+      ? `position:absolute;left:var(--hd-padding,32px);top:0;height:${totalLogoH}px;display:flex;align-items:center;z-index:10;transition:opacity .2s`
+      : `display:block;height:${logoMaxHeight}px;transition:opacity .2s`
   }, logoImg);
-
-  const ctaBtn = btn(content.site?.cta || 'Get in touch', '#contact');
 
   // ── Top bar (dual mode) ─────────────────────────────────────────
   const topBarLinks = [];
@@ -150,12 +153,10 @@ export default content => {
   // If no custom navTop links configured, use defaults matching reference site
   if (topBarLinks.length === 0 && isDual) {
     const defaults = [
-      { label: 'Partners', href: '#' },
       { label: 'News',     href: '#' },
       { label: 'Events',   href: '#' },
-      { label: 'Green Optima Insights', href: '#' },
       { label: 'Careers',  href: '#' },
-      { label: 'Contact',  href: '#contact' }
+      { label: 'Green Optima Insights', href: '#' },
     ];
     defaults.forEach((item, idx) => {
       if (idx > 0) topBarLinks.push(h('span', { class: 'hd-top-sep' }));
@@ -168,14 +169,29 @@ export default content => {
   );
 
   // ── Main bar ────────────────────────────────────────────────────
+  // In dual mode, add a left spacer so nav links don't overlap the spanning logo
+  const logoSpacer = isDual
+    ? h('div', { style: `width:${logoMaxHeight * 3.5}px;flex-shrink:0` })
+    : null;
+
   const mainBar = h('div', { id: 'hd-main' },
     h('div', { class: 'hd-inner' },
-      logoEl,
+      logoSpacer,
       h('nav', {}, ...desktopNavLinks),
-      ctaBtn,
       hb
     )
   );
+
+  // In dual mode, attach logo to the outer header so it can span both bars
+  if (isDual) {
+    if (typeof document !== 'undefined') {
+      // Defer so the header is already in DOM when we need to attach the logo
+      requestAnimationFrame(() => {
+        const hdEl = document.getElementById('hd');
+        if (hdEl) { hdEl.appendChild(logoEl); }
+      });
+    }
+  }
 
   // ── Outer header wrapper ─────────────────────────────────────────
   const headerEl = h('header', {

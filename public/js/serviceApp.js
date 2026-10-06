@@ -11,7 +11,7 @@ import footer from './components/footer.js';
 import serviceDetail from './components/serviceDetail.js';
 
 // Section components
-import hero from './components/hero.js';
+import hero from './components/hero.js?v=2';
 import pillars from './components/pillars.js';
 import about from './components/about.js';
 import cases from './components/cases.js';

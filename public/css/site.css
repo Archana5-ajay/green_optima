@@ -14,10 +14,10 @@
     --pad:    clamp(16px, 3vw, 44px);
 
     /* ── Navbar CSS Variables ── */
-    --hd-top-bg:     rgba(5, 8, 6, 0.97);
-    --hd-top-color:  rgba(180,220,190,0.82);
+    --hd-top-bg:     rgba(0, 0, 0, 0.88);
+    --hd-top-color:  rgba(200,230,210,0.75);
     --hd-top-height: 38px;
-    --hd-main-bg:    rgba(8, 14, 10, 0.88);
+    --hd-main-bg:    rgba(0, 0, 0, 0.75);
     --hd-main-color: #ffffff;
     --hd-main-height: 70px;
     --hd-total:      108px;
@@ -42,6 +42,17 @@ body {
     letter-spacing: -.25px;
     color: var(--ink);
     overflow-x: hidden
+}
+
+/* Wrapper for full-HTML custom pages (Coming Soon, etc.) — prevents their
+   body { display:flex } from leaking and breaking the footer layout */
+.coming-soon-wrap {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
 }
 
 .reveal-on-scroll {
@@ -216,27 +227,32 @@ h3 {
     flex-direction: column;
     border-radius: var(--hd-border-radius, 0px);
     transition: top .3s, left .3s, right .3s, border-radius .3s;
+    box-shadow:
+        0 4px 24px 0 rgba(0,0,0,0.45),
+        0 16px 48px 0 rgba(0,0,0,0.25);
 }
 
-/* ── Main navbar row ── */
+/* ── Main navbar row — black glassmorphism ── */
 #hd-main {
     display: flex;
     align-items: center;
     height: var(--hd-main-height, 70px);
     padding: 0 var(--hd-padding, 32px);
-    background: rgba(70,70,70,0.35) !important;
-    backdrop-filter: blur(18px) !important;
-    -webkit-backdrop-filter: blur(18px) !important;
+    /* Lighter black glassmorphism */
+    background: rgba(30, 30, 30, 0.72) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
     color: var(--hd-main-color, #fff);
-    transition: background .3s, height .3s, color .3s;
+    transition: background .4s, height .3s, color .3s;
     position: relative;
-    border-bottom: 1px solid var(--hd-border-color, rgba(255,255,255,.07));
 }
+
+
 
 #hd-main .hd-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     max-width: var(--hd-max-width, 1340px);
     margin: 0 auto;
@@ -246,20 +262,23 @@ h3 {
     display: flex;
     gap: clamp(14px, 2vw, 28px);
     align-items: center;
+    margin: 0 auto;
 }
 
-/* ── TOP secondary bar (dual navbar only) ── */
+/* ── TOP secondary bar — black glassmorphism ── */
 #hd-top {
     display: none;
     align-items: center;
     height: var(--hd-top-height, 38px);
     padding: 0 var(--hd-padding, 32px);
-    background: var(--hd-top-bg, rgba(5,8,6,0.97));
-    color: var(--hd-top-color, rgba(180,220,190,0.82));
+    background: var(--hd-top-bg, rgba(0,0,0,0.88));
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    color: var(--hd-top-color, rgba(200,230,210,0.75));
     font-weight: 500;
     letter-spacing: .03em;
-    border-bottom: 1px solid var(--hd-border-color, rgba(255,255,255,.07));
-    transition: background .3s, height .3s, color .3s;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background .4s, height .3s, color .3s;
 }
 
 #hd-top .hd-top-inner {
@@ -316,18 +335,18 @@ h3 {
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background: var(--hd-main-bg, rgba(8,14,10,0.95));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--hd-border-color, rgba(255,255,255,0.07));
-    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     padding: 8px 0;
     min-width: 220px;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition: all 0.25s var(--ease);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3);
     z-index: 100;
 }
 .nav-dropdown:hover .nav-dropdown-menu {

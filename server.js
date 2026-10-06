@@ -1,15 +1,16 @@
-import express from 'express';import multer from 'multer';import crypto from 'node:crypto';import fs from 'node:fs';import path from 'node:path';import{fileURLToPath}from'node:url';import seed from'./data/seed.js';
+import express from 'express';import multer from 'multer';import crypto from 'node:crypto';import fs from 'node:fs';import path from 'node:path';import{fileURLToPath}from'node:url';import seed from'./data/seed.js';import compression from 'compression';
 const R=path.dirname(fileURLToPath(import.meta.url)),D=path.join(R,'data'),U=path.join(R,'public/uploads');
 fs.mkdirSync(U,{recursive:true});
 const PASS=process.env.ADMIN_PASSWORD;if(!PASS||PASS.length<8){console.error('Set ADMIN_PASSWORD (8+ chars)');process.exit(1)}
 const SECRET=process.env.SESSION_SECRET||crypto.randomBytes(32).toString('hex');
-const rd=(f,d)=>{try{return JSON.parse(fs.readFileSync(path.join(D,f),'utf8'))}catch{return d}};
-const wr=(f,v)=>{const p=path.join(D,f);fs.writeFileSync(p+'.tmp',JSON.stringify(v,null,2));fs.renameSync(p+'.tmp',p)};
+let cache={};
+const rd=(f,d)=>{if(cache[f])return cache[f];try{const v=JSON.parse(fs.readFileSync(path.join(D,f),'utf8'));cache[f]=v;return v}catch{return d}};
+const wr=(f,v)=>{cache[f]=v;const p=path.join(D,f);fs.writeFileSync(p+'.tmp',JSON.stringify(v,null,2));fs.renameSync(p+'.tmp',p)};
 const mac=e=>crypto.createHmac('sha256',SECRET).update(String(e)).digest('hex');
 const ok=t=>{const[e,s]=String(t||'').split('.');if(!e||!s||+e<Date.now())return false;const x=mac(e);return s.length===x.length&&crypto.timingSafeEqual(Buffer.from(s),Buffer.from(x))};
 const ck=q=>Object.fromEntries((q.headers.cookie||'').split(';').map(c=>c.trim().split('=')).filter(x=>x[0]));
 const auth=(q,s,n)=>ok(ck(q).sid)?n():s.status(401).json({error:'Unauthorized'});
-const app=express();app.disable('x-powered-by');app.use(express.json({limit:'2mb'}));
+const app=express();app.disable('x-powered-by');app.use(express.json({limit:'2mb'}));app.use(compression());
 app.use((q,s,n)=>{s.set({'X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Referrer-Policy':'same-origin'});n()});
 const tries=new Map(),sha=v=>crypto.createHash('sha256').update(String(v)).digest();
 app.post('/api/login',(q,s)=>{const t=tries.get(q.ip)||{n:0,r:Date.now()+9e5};if(Date.now()>t.r){t.n=0;t.r=Date.now()+9e5}
